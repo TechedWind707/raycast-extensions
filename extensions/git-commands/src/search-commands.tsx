@@ -142,12 +142,7 @@ export default function Command() {
         title={name}
         subtitle={{ value: command, tooltip: command }}
         detail={<List.Item.Detail markdown={detail} />}
-        keywords={[
-          ...(alias.keywords || []),
-          ...description.split(" "),
-          ...command.split(" ").map(toKeyword).flat(),
-          name,
-        ]}
+        keywords={[...(alias.keywords || []), ...command.split(" ").map(toKeyword).flat(), name]}
         accessories={[
           ...(pin && !hidePin
             ? [{ icon: { source: Icon.Tack, ...(isPinColored && { tintColor: Color.Yellow }) } }]

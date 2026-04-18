@@ -283,28 +283,41 @@
     "name": "gcas",
     "command": "git commit -a -s",
     "type": "default",
-    "description": "Creates a commit from staged changes.\n\n**Example:** `git commit`\n\n**Pitfalls:**\n- Apostrophes can break the message; use `\\'` or open the editor instead.\n- Forgot `git add`? You will create an empty commit or omit files.\n\n**Why?** save progress with a clear message",
-    "keywords": ["all", "commit", "commits", "dco", "gcas", "save", "signoff", "snapshot", "tracked"]
+    "keywords": [
+      "commit",
+      "commits",
+      "signoff",
+      "sign-off",
+      "dco",
+      "signed-off-by",
+      "s",
+      "-s",
+      "all",
+      "tracked",
+      "message"
+    ],
+    "description": "Commit all tracked changes and add a DCO sign-off line (`Signed-off-by:`).\n\n**Example:** `git commit -a -s`\n\n**Pitfalls:**\n- `-a` skips new files; run `git add <file>` first.\n- Wrong name/email in the sign-off: set `git config user.name \"Your Name\"` and `git config user.email \"you@example.com\"`.\n\n**Why?** Some projects require DCO sign-offs on every commit."
   },
   {
     "name": "gcasm",
     "command": "git commit -a -s -m",
     "type": "default",
-    "description": "Creates a commit from staged changes.\n\n**Example:** `git commit -a -m \"Fix bug\"`\n\n**Pitfalls:**\n- Apostrophes can break the message; use `\\'` or open the editor instead.\n- Forgot `git add`? You will create an empty commit or omit files.\n\n**Why?** save progress with a clear message",
     "keywords": [
-      "all",
-      "cmsg",
       "commit",
       "commits",
-      "dco",
-      "gcasm",
       "message",
       "msg",
-      "save",
+      "cmsg",
       "signoff",
-      "snapshot",
+      "sign-off",
+      "dco",
+      "signed-off-by",
+      "s",
+      "-s",
+      "all",
       "tracked"
-    ]
+    ],
+    "description": "Commit all tracked changes with a message, and add a DCO sign-off line.\n\n**Example:** `git commit -a -s -m \"Fix lint errors\"`\n\n**Pitfalls:**\n- Quote issues in `-m` (like `Don't`): use double quotes or your editor.\n- `-a` can commit more than you intended; check `git status` / `git diff` first.\n\n**Why?** Fast, compliant commits (message + sign-off) for DCO repos."
   },
   {
     "name": "gcmsg",
@@ -324,15 +337,46 @@
     "name": "gcsm",
     "command": "git commit -s -m",
     "type": "default",
-    "description": "Creates a commit from staged changes.\n\n**Example:** `git commit -m \"Fix bug\"`\n\n**Pitfalls:**\n- Apostrophes can break the message; use `\\'` or open the editor instead.\n- Forgot `git add`? You will create an empty commit or omit files.\n\n**Why?** save progress with a clear message",
-    "keywords": ["cmsg", "commit", "commits", "dco", "gcsm", "message", "msg", "save", "signoff", "snapshot"]
+    "keywords": [
+      "commit",
+      "commits",
+      "message",
+      "msg",
+      "cmsg",
+      "signoff",
+      "sign-off",
+      "dco",
+      "signed-off-by",
+      "s",
+      "-s",
+      "staged",
+      "index"
+    ],
+    "description": "Commit staged changes with a message, and add a DCO sign-off line.\n\n**Example:** `git commit -s -m \"Add README\"`\n\n**Pitfalls:**\n- Nothing to commit: stage first (`git add .`) and re-run.\n- Wrong sign-off identity: fix `user.name` / `user.email` in git config.\n\n**Why?** Keeps history clean and meets “sign-off required” contribution rules."
   },
   {
     "name": "gcss",
     "command": "git commit -S -s",
     "type": "default",
-    "description": "Creates a commit from staged changes.\n\n**Example:** `git commit -S -m \"Fix bug\"`\n\n**Pitfalls:**\n- Apostrophes can break the message; use `\\'` or open the editor instead.\n- Forgot `git add`? You will create an empty commit or omit files.\n\n**Why?** save progress with a clear message",
-    "keywords": ["commit", "commits", "dco", "gcss", "gpg", "save", "sign", "signed", "signoff", "snapshot"]
+    "keywords": [
+      "commit",
+      "commits",
+      "sign",
+      "signing",
+      "gpg",
+      "pgp",
+      "verify",
+      "verified",
+      "dco",
+      "signoff",
+      "sign-off",
+      "signed-off-by",
+      "S",
+      "-S",
+      "s",
+      "-s"
+    ],
+    "description": "Commit (from staged changes) with GPG signing (`-S`) and a DCO sign-off line (`-s`).\n\n**Example:** `git commit -S -s`\n\n**Pitfalls:**\n- `gpg failed to sign`: set up a signing key (`git config user.signingkey <keyid>`) or drop `-S`.\n- Still need staging: run `git add <file>` first if “nothing to commit”.\n\n**Why?** Produces “Verified” commits plus DCO sign-off when a project requires both."
   },
   {
     "name": "gcssm",

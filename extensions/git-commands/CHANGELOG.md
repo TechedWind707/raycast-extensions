@@ -1,6 +1,6 @@
 # Git Commands Changelog
 
-## [Beginner-friendly descriptions and keywords] - {{DATE}}
+## [Beginner-friendly descriptions and keywords] - {{PR_MERGE_DATE}}
 
 - Rewrite alias descriptions for beginners with examples, pitfalls, and why.
 - Add search keywords for every alias to improve matching.
